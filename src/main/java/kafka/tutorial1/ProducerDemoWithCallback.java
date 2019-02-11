@@ -29,8 +29,8 @@ public class ProducerDemoWithCallback {
 
             // Send data - asynchronous
             producer.send(record, new Callback() {
+                // onCompletion method executes every time a record is successfully sent or an exception is thrown
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
-                    // Executes every time a record is successfully sent or an exception is thrown
                     if (e == null) {
                         // the record was successfully sent
                         logger.info("Received new metadata: \n" +
