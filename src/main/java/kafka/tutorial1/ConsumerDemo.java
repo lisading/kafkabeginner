@@ -36,7 +36,8 @@ public class ConsumerDemo {
         // consumer.subscribe(Arrays.asList("first_topic", "second_topic"));
 
         // Poll the new data
-        while (true) {
+        while (true) { // The consumer does not get data until it asks for that data
+            // consumer.poll(100); // poll is deprecated
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100)); // new in Kafka 2.0.0
             for (ConsumerRecord<String, String> record : records) {
                 logger.info("Key: " + record.key() + ", Value: " + record.value());
